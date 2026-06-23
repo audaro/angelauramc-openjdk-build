@@ -21,7 +21,7 @@ if [[ "$error_code" -ne 0 ]]; then
   exit $error_code
 fi
 
-CFLAGS=-fno-rtti CXXFLAGS=-fno-rtti make -j4
+CFLAGS=-fno-rtti CXXFLAGS=-fno-rtti LDFLAGS="-Wl,-z,max-page-size=16384" make -j4
 make install
 
 fi
