@@ -7,7 +7,7 @@ echo "Building Freetype"
 
 if [[ "$BUILD_IOS" != "1" ]]; then
   export PATH=$TOOLCHAIN/bin:$PATH
-  ./configure \
+  LDFLAGS="-Wl,-z,max-page-size=16384" ./configure \
     --host=$TARGET \
     --prefix=${PWD}/build_android-${TARGET_SHORT} \
     --without-zlib \
